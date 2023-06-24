@@ -31,7 +31,6 @@ app.use(bodyParser.json());
 app.use(cors({
     origin: "https://smart-brain-3eok.onrender.com/"
 }));
-app.options('*', cors())
 dotenv.config();
 
 app.get('/', (req, res) =>{res.send('success')})
