@@ -28,9 +28,7 @@ const db = knex({
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({
-    origin: "https://smart-brain-3eok.onrender.com"
-}));
+app.use(cors({ origin: true }));
 dotenv.config();
 
 app.get('/', (req, res) =>{res.send('success')})
