@@ -14,9 +14,9 @@ import * as image from './controllers/image.js';
 import dotenv from 'dotenv';
 
 const corsOptions = {
-  origin: 'https://example.com', // Specify the allowed origin(s)
-  methods: ['GET', 'POST'], // Specify the allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
+  origin: 'https://smart-brain-3eok.onrender.com/', // Allow requests from specific origins
+  methods: ['GET', 'POST', 'PUT'], // Allow GET, POST, and PUT methods
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 const db = knex({
