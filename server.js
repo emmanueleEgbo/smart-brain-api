@@ -26,10 +26,15 @@ const db = knex({
   }
 });
 
+const corsOptions = {
+  origin: 'https://smart-brain-3eok.onrender.com/',
+  methods: ['GET', 'POST', 'PUT'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: true }));
 dotenv.config();
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) =>{res.send('success')})
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
