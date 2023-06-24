@@ -13,12 +13,6 @@ import { handleImage} from './controllers/image.js';
 import * as image from './controllers/image.js';
 import dotenv from 'dotenv';
 
-const corsOptions = {
-  origin: 'https://smart-brain-3eok.onrender.com/', // Allow requests from specific origins
-  methods: ['GET', 'POST', 'PUT'], // Allow GET, POST, and PUT methods
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
-
 const db = knex({
   client: 'pg',
   connection: {
@@ -34,7 +28,7 @@ const db = knex({
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors(corsOptions));
+app.use(cors());
 dotenv.config();
 
 app.get('/', (req, res) =>{res.send('success')})
