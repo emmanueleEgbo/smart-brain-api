@@ -13,6 +13,7 @@ import { handleImage} from './controllers/image.js';
 import * as image from './controllers/image.js';
 import dotenv from 'dotenv';
 
+
 const db = knex({
   client: 'pg',
   connection: {
