@@ -13,7 +13,6 @@ import { handleImage} from './controllers/image.js';
 import * as image from './controllers/image.js';
 import dotenv from 'dotenv';
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import fetch from 'node-fetch';
 
 globalThis.fetch = fetch
 
