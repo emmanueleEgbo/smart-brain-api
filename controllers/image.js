@@ -38,6 +38,7 @@ const handleApiCall = (req, res) => {
   const fetchOptions = returnClarifaiRequestOptions(imageUrl);
   fetch(`https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`, fetchOptions)
     .then(response => response.json())
+    res.setHeader('Access-Control-Allow-Origin', 'https://smart-brain-3eok.onrender.com');
     .then(data => { 
       res.json(data);
     })
