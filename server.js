@@ -15,6 +15,8 @@ import dotenv from 'dotenv';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 import fetch from 'node-fetch';
 
+globalThis.fetch = fetch
+
 
 const app = express();
 app.use(bodyParser.json());
