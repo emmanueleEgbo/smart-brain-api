@@ -12,6 +12,7 @@ import * as profile from './controllers/profile.js';
 import { handleImage} from './controllers/image.js';
 import * as image from './controllers/image.js';
 import dotenv from 'dotenv';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 
 const db = knex({
   client: 'pg',
@@ -29,9 +30,22 @@ const db = knex({
 const app = express();
 app.use(bodyParser.json());
 dotenv.config();
-app.use(cors({
-  origin: 'https://smart-brain-3eok.onrender.com',
-}));
+// Set up the proxy middleware
+app.use(
+  '/api',
+  createProxyMiddleware({
+    target: 'https://smart-brain-api-wkdv.onrender.com',
+    changeOrigin: true,
+  })
+);
+
+// Enable CORS for the frontend
+app.use(
+  cors({
+    origin: 'https://smart-brain-3eok.onrender.com',
+  })
+);
+
 
 app.get('/', (req, res) =>{res.send('success')})
 app.post('/signin', (req, res) => {signin.handleSignin(req, res, db, bcrypt)})
@@ -40,7 +54,7 @@ app.get('/profile/:id', (req, res) => {profile.handleProfileGet(req, res, db)})
 app.put('/image', (req, res) => {image.handleImage(req, res, db)})
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})
   
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 app.listen(port, () => {
   console.log(`app is running on port ${port} !!!!!`);
