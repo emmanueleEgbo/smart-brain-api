@@ -13,6 +13,11 @@ import { handleImage} from './controllers/image.js';
 import * as image from './controllers/image.js';
 import dotenv from 'dotenv';
 
+const corsOptions = {
+  origin: 'https://example.com', // Specify the allowed origin(s)
+  methods: ['GET', 'POST'], // Specify the allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
+};
 
 const db = knex({
   client: 'pg',
@@ -29,7 +34,7 @@ const db = knex({
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
 dotenv.config();
 
 app.get('/', (req, res) =>{res.send('success')})
