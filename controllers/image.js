@@ -38,12 +38,26 @@ const handleApiCall = (req, res) => {
   const fetchOptions = returnClarifaiRequestOptions(imageUrl);
   fetch(`https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`, fetchOptions)
     .then(response => response.json())
-    res.setHeader('Access-Control-Allow-Origin', 'https://smart-brain-3eok.onrender.com');
     .then(data => { 
+      res.setHeader('Access-Control-Allow-Origin', 'https://smart-brain-3eok.onrender.com');
       res.json(data);
     })
     .catch(err => res.status(400).json('Unable to work with API'));
 };
+
+
+
+// const handleApiCall = (req, res) => {
+//   const { imageUrl } = req.body;
+//   const fetchOptions = returnClarifaiRequestOptions(imageUrl);
+//   fetch(`https://api.clarifai.com/v2/models/${MODEL_ID}/outputs`, fetchOptions)
+//     .then(response => response.json())
+//     res.setHeader('Access-Control-Allow-Origin', 'https://smart-brain-3eok.onrender.com');
+//     .then(data => { 
+//       res.json(data);
+//     })
+//     .catch(err => res.status(400).json('Unable to work with API'));
+// };
 
 const handleImage = (req, res, db) =>{
   const { id } = req.body;
