@@ -29,7 +29,7 @@ const db = knex({
 const app = express();
 app.use(bodyParser.json());
 app.use(cors({
-    origin: "https://smart-brain-3eok.onrender.com/"
+    origin: "https://smart-brain-3eok.onrender.com"
 }));
 dotenv.config();
 
