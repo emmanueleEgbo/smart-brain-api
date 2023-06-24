@@ -4,8 +4,8 @@
   "type": "module",
   "description": "",
   "main": "index.js",
-  "scripts": {
-  "start": "react-scripts start || node server.js || nodemon server.js"
+ "scripts": {
+  "start": "node server.js || nodemon server.js"
 }
 ,
   "keywords": [],
