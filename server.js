@@ -20,7 +20,8 @@ globalThis.fetch = fetch
 const app = express();
 app.use(bodyParser.json());
 dotenv.config();
-// Set up the proxy middleware
+
+// Set up a proxy middleware
 app.use(
   '/api',
   createProxyMiddleware({
