@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 const MODEL_ID = 'face-detection';
 
 const returnClarifaiRequestOptions = (imageUrl) => {
