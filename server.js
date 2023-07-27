@@ -14,8 +14,6 @@ import * as image from './controllers/image.js';
 import dotenv from 'dotenv';
 import { createProxyMiddleware } from 'http-proxy-middleware';
 
-globalThis.fetch = fetch
-
 
 const app = express();
 app.use(bodyParser.json());
